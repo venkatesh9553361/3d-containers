@@ -48,8 +48,8 @@ const ContainerPage = () => {
   );
 };
 
-const Container = ({ size, items, depth }) => {
-  const containerRef = useRef();
+const Container = ({ size, items, depth }: any) => {
+  const containerRef = useRef<any>();
   const [isDragging, setDragging] = useState(false);
   useFrame(({ mouse }) => {
     if (isDragging) return; // Skip rotation when dragging
@@ -77,7 +77,7 @@ const Container = ({ size, items, depth }) => {
           <boxGeometry args={[size[0], size[1], depth]} />
           <meshBasicMaterial color={0xf0f0f0} wireframe />
         </mesh>
-        {items.map((item, index) => {
+        {items.map((item: any, index: any) => {
           // Check if item is within container bounds
           const itemX = Math.max(Math.min(item.x, size[0] - item.width), 0);
           const itemY = Math.max(Math.min(item.y, size[1] - item.height), 0);
